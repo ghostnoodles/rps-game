@@ -26,6 +26,11 @@ let playerSelection = (playerChoice) => {
     }
 };
 
+let playRound = (playerSelection, computerSelection) => {
+    // if (playerSelection == computerSelection)
+    //     return playerSelection + ' beats ' + computerSelection + '!'
+}
+
 let playerChoice = prompt("Please enter either Rock, paper, or Scissors ", '');
 
-console.log(playerSelection(playerChoice))
+console.log(playerSelection(playRound(playerSelection(), computerSelection())))
