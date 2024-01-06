@@ -1,5 +1,18 @@
 # rps-game
 Starting the Odin project Rock, Paper, and Scissors 
 
-Getchomputerchoice 
-random pick r, p or s for computer option
+Getcomputerchoice 
+random pick r, p or s for computer option (in the form of 1,2 or 3)
+Use IF loop?
+
+playerSelection
+get player r,p or s option via prompt 
+account for uppper case and lower case
+also account for if they did not type rock, paper or scissors
+
+computerSelection
+calls the Getcomputerchoice for CPU option
+
+playRound
+IF loops? to compare player and CPU answer
+account for ties
