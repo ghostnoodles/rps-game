@@ -20,8 +20,9 @@ let computerSelection = (num) => {
 let playerChoice = ''
 
 let playerSelection = () => {
-    playerChoice = prompt("Please enter either Rock, paper, or Scissors ", '')
-    playerChoice.toLowerCase()
+    playerChoice = prompt("Please enter either Rock, Paper, or Scissors ", '').toLowerCase()
+    console.log(playerChoice) 
+    console.log(typeof(playerChoice)) 
     if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
     {
         return playerChoice
