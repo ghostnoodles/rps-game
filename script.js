@@ -9,10 +9,8 @@ let computerSelection = (num) => {
     switch(num) {
         case 1:
             return 'Rock'
-            break;
         case 2:
             return 'Paper'
-            break;
         case 3:
             return 'Scissors'
     }
@@ -20,17 +18,23 @@ let computerSelection = (num) => {
 
 let playerSelection = (playerChoice) => {
     playerChoice.toLowerCase()
-    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
+    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors')
     {
         return playerChoice
     }
 };
 
 let playRound = (playerSelection, computerSelection) => {
-    // if (playerSelection == computerSelection)
-    //     return playerSelection + ' beats ' + computerSelection + '!'
+    if (playerSelection == 'rock'){
+
+        return playerSelection + ' beats ' + computerSelection + '!'
+    }
+    else if (playerSelection == 'paper') {
+        
+    }
 }
+
 
 let playerChoice = prompt("Please enter either Rock, paper, or Scissors ", '');
 
-console.log(playerSelection(playRound(playerSelection(), computerSelection())))
+console.log(playRound(playerSelection(playerChoice), computerSelection(getComputerChoice())))
