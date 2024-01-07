@@ -18,7 +18,6 @@ let computerSelection = (num) => {
 
 let playerSelection = (playerChoice) => {
     playerChoice.toLowerCase()
-
     if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
     {
         return playerChoice
@@ -26,6 +25,7 @@ let playerSelection = (playerChoice) => {
 };
 
 let playRound = (playerSelection, computerSelection) => {
+    console.log(playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
     if (playerSelection == 'rock'){
         if (computerSelection == 'paper'){
             return 'Rock losses to paper!'
@@ -50,8 +50,9 @@ let playRound = (playerSelection, computerSelection) => {
             return 'Scissors beats paper!'
         }
     }
-    else
-        return  ' ties with ' 
+    else {
+        return (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)) + ' ties with ' + (computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1))
+    }
 };
 
 
