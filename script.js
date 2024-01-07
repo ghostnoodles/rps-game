@@ -5,6 +5,7 @@
 // }
 
 let getComputerChoice = () => Math.floor(Math.random() * 3 + 1);
+let firstLetterUpperCase = (word) => word.charAt(0).toUpperCase() + word.slice(1);
 let computerSelection = (num) => {
     switch(num) {
         case 1:
@@ -47,20 +48,27 @@ let playRound = (playerSelection, computerSelection) => {
             return 'Scissors beats paper!'
     }
     else {
-        let player = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-        return  [player + ' ties with ' + computerSelection + '!', 0, 0, 1]
+        return  [firstLetterUpperCase(player) + ' ties with ' + computerSelection + '!', 0, 0, 1]
     }
 };
 
 let playerWins = 0
 let computerWins = 0
 let totalRounds = 0
+let result = ''
 
 let game = (playerWins, computerWins, totalRounds) =>{
-    while ((playerWins < 3) || (computerWins < 3)){
-        console.log(playRound(playerSelection(), computerSelection(getComputerChoice())))
-        console.log(++playerWins)
-        console.log(++computerWins)
+    while ((playerWins < 4) && (computerWins < 4)){
+        result = playRound(playerSelection(), computerSelection(getComputerChoice()))
+        console.log('The current score for Player:' + playerWins)
+        console.log('The current score is Computer:' + computerWins)
+        console.log(result[0])
+        console.log('')           
+        playerWins += result[1]
+        computerWins += result[2]
+        totalRounds += result[3]
+        // console.log(++playerWins)
+        // console.log(++computerWins)
     }
 };
 
