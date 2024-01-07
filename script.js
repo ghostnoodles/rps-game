@@ -58,17 +58,24 @@ let totalRounds = 0
 let result = ''
 
 let game = (playerWins, computerWins, totalRounds) =>{
-    while ((playerWins < 4) && (computerWins < 4)){
+    while ((playerWins < 3) && (computerWins < 3)){
         result = playRound(playerSelection(), computerSelection(getComputerChoice()))
-        console.log('The current score for Player:' + playerWins)
-        console.log('The current score is Computer:' + computerWins)
-        console.log(result[0])
-        console.log('')           
         playerWins += result[1]
         computerWins += result[2]
         totalRounds += result[3]
+        console.log('The current score for Player:' + playerWins)
+        console.log('The current score is Computer:' + computerWins)
+        console.log('Total rounds:' + totalRounds)
+        console.log(result[0])
+        console.log('')           
         // console.log(++playerWins)
         // console.log(++computerWins)
+    }
+    if (playerWins == 3) {
+        console.log('The player wins!')
+    }
+    else {
+        console.log('The computer wins!')
     }
 };
 
