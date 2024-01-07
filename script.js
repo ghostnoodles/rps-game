@@ -30,22 +30,22 @@ let playerSelection = () => {
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock' && computerSelection == 'paper'){
-        return ['Rock losses to paper!', 1, 0, 1]
+        return ['Rock losses to paper!', 0, 1, 1]
     }
     else if (playerSelection == 'rock' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
-            return ['Rock beats scissors!', 0, 1, 1]
+            return ['Rock beats scissors!', 1, 0, 1]
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
-            return 'Paper beats rock!'
+            return ['Paper beats rock!', 1, 0, 1]
     }
     else if (playerSelection == 'paper' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
-            return 'Paper losses to scissors!'
+            return ['Paper losses to scissors!', 0, 1, 1]
     }
     else if ((playerChoice == 'scissors' || playerChoice == 'scissor') && (computerSelection == 'rock')){
-            return 'Scissors losses to rock!'
+            return ['Scissors losses to rock!', 0, 1, 1]
     }
     else if ((playerChoice == 'scissors' || playerChoice == 'scissor') && (computerSelection == 'paper')){
-            return 'Scissors beats paper!'
+            return ['Scissors beats paper!', 1, 0, 1]
     }
     else {
         return  [firstLetterUpperCase(playerChoice) + ' ties with ' + computerSelection + '!', 0, 0, 1]
