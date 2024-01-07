@@ -21,8 +21,6 @@ let playerChoice = ''
 
 let playerSelection = () => {
     playerChoice = prompt("Please enter either Rock, Paper, or Scissors ", '').toLowerCase()
-    console.log(playerChoice) 
-    console.log(typeof(playerChoice)) 
     if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
     {
         return playerChoice
@@ -64,9 +62,9 @@ let game = (playerWins, computerWins, totalRounds) =>{
         playerWins += result[1]
         computerWins += result[2]
         totalRounds += result[3]
-        console.log('The current score for Player:' + playerWins)
-        console.log('The current score is Computer:' + computerWins)
-        console.log('Total rounds:' + totalRounds)
+        console.log('The current score for Player: ' + playerWins)
+        console.log('The current score is Computer: ' + computerWins)
+        console.log('Total rounds: ' + totalRounds)
         console.log(result[0])
         console.log('')           
         // console.log(++playerWins)
