@@ -51,8 +51,8 @@ let playRound = (playerSelection, computerSelection) => {
         }
     }
     else
-        return (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)) + ' ties with ' (computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1))
-}
+        return  ' ties with ' 
+};
 
 
 let playerChoice = prompt("Please enter either Rock, paper, or Scissors ", '');
