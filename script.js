@@ -25,7 +25,6 @@ let playerSelection = (playerChoice) => {
 };
 
 let playRound = (playerSelection, computerSelection) => {
-    console.log(playerSelection, computerSelection)
     if (playerSelection == 'rock' && computerSelection == 'paper'){
         return 'Rock losses to paper!'
     }
@@ -46,10 +45,7 @@ let playRound = (playerSelection, computerSelection) => {
     }
     else {
         let player = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-        let cpu = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
-        console.log(player, cpu )
-        console.log(typeof player,typeof cpu )
-        return  player + ' ties with ' + cpu 
+        return  player + ' ties with ' + computerSelection + '!'
     }
 };
 
