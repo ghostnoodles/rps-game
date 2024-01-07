@@ -8,11 +8,11 @@ let getComputerChoice = () => Math.floor(Math.random() * 3 + 1);
 let computerSelection = (num) => {
     switch(num) {
         case 1:
-            return 'Rock'
+            return 'rock'
         case 2:
-            return 'Paper'
+            return 'paper'
         case 3:
-            return 'Scissors'
+            return 'scissors'
     }
 };
 
