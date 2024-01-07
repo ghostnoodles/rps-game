@@ -19,3 +19,10 @@ playRound
 IF loops? to compare player and CPU answer
 e.g. player selction (rock) = rock && CPU section (scissors) = player wins
 account for ties
+
+game()
+prompt() to get player input
+needed gobal varabiles for score
+FOR loop? to keep track of score?
+console log() to display winning or lossing
+console log() to display currents hands

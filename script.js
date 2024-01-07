@@ -16,7 +16,10 @@ let computerSelection = (num) => {
     }
 };
 
-let playerSelection = (playerChoice) => {
+let playerChoice = ''
+
+let playerSelection = () => {
+    playerChoice = prompt("Please enter either Rock, paper, or Scissors ", '')
     playerChoice.toLowerCase()
     if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
     {
@@ -26,10 +29,10 @@ let playerSelection = (playerChoice) => {
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock' && computerSelection == 'paper'){
-        return 'Rock losses to paper!'
+        return ['Rock losses to paper!', 1, 0, 1]
     }
     else if (playerSelection == 'rock' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
-            return 'Rock beats scissors!'
+            return ['Rock beats scissors!', 0, 1, 1]
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
             return 'Paper beats rock!'
@@ -45,7 +48,7 @@ let playRound = (playerSelection, computerSelection) => {
     }
     else {
         let player = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-        return  player + ' ties with ' + computerSelection + '!'
+        return  [player + ' ties with ' + computerSelection + '!', 0, 0, 1]
     }
 };
 
@@ -55,12 +58,13 @@ let totalRounds = 0
 
 let game = (playerWins, computerWins, totalRounds) =>{
     while ((playerWins < 3) || (computerWins < 3)){
-        console.log(++player)
-        console.log(++computerwins)
+        console.log(playRound(playerSelection(), computerSelection(getComputerChoice())))
+        console.log(++playerWins)
+        console.log(++computerWins)
     }
 };
 
-game(playerWins, computerWins, totalRounds)
+game(playerWins, computerWins, totalRounds);
 
 
 // console.log(playRound(playerSelection(playerChoice), computerSelection(getComputerChoice())))
