@@ -31,23 +31,18 @@ let playRound = (playerSelection, computerSelection) => {
     }
     else if (playerSelection == 'rock' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
             return 'Rock beats scissors!'
-        }
-
-    else if (playerSelection == 'paper') {
-        if (computerSelection == 'rock'){
-            return 'Paper beats rock!'
-        }
-        else if (computerSelection == 'scissors' || computerSelection == 'scissor'){
-            return 'Paper losses to scissors!'
-        }
     }
-    else if (playerChoice == 'scissors' || playerChoice == 'scissor') {
-        if (computerSelection == 'rock'){
+    else if (playerSelection == 'paper' && computerSelection == 'rock') {
+            return 'Paper beats rock!'
+    }
+    else if (playerSelection == 'paper' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
+            return 'Paper losses to scissors!'
+    }
+    else if ((playerChoice == 'scissors' || playerChoice == 'scissor') && (computerSelection == 'rock')){
             return 'Scissors losses to rock!'
-        }
-        else if (computerSelection == 'paper'){
+    }
+    else if ((playerChoice == 'scissors' || playerChoice == 'scissor') && (computerSelection == 'paper')){
             return 'Scissors beats paper!'
-        }
     }
     else {
         let player = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
