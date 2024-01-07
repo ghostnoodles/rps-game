@@ -49,7 +49,18 @@ let playRound = (playerSelection, computerSelection) => {
     }
 };
 
+let playerWins = 0
+let computerWins = 0
+let totalRounds = 0
 
-let playerChoice = prompt("Please enter either Rock, paper, or Scissors ", '');
+let game = (playerWins, computerWins, totalRounds) =>{
+    while ((playerWins < 3) || (computerWins < 3)){
+        console.log(++player)
+        console.log(++computerwins)
+    }
+};
 
-console.log(playRound(playerSelection(playerChoice), computerSelection(getComputerChoice())))
+game(playerWins, computerWins, totalRounds)
+
+
+// console.log(playRound(playerSelection(playerChoice), computerSelection(getComputerChoice())))
