@@ -18,7 +18,8 @@ let computerSelection = (num) => {
 
 let playerSelection = (playerChoice) => {
     playerChoice.toLowerCase()
-    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors')
+
+    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
     {
         return playerChoice
     }
@@ -26,12 +27,31 @@ let playerSelection = (playerChoice) => {
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock'){
-
-        return playerSelection + ' beats ' + computerSelection + '!'
+        if (computerSelection == 'paper'){
+            return 'Rock losses to paper!'
+        }
+        else if (computerSelection == 'scissors' || computerSelection == 'scissor'){
+            return 'Rock beats scissors!'
+        }
     }
     else if (playerSelection == 'paper') {
-        
+        if (computerSelection == 'rock'){
+            return 'Paper beats rock!'
+        }
+        else if (computerSelection == 'scissors' || computerSelection == 'scissor'){
+            return 'Paper losses to scissors!'
+        }
     }
+    else if (playerChoice == 'scissors' || playerChoice == 'scissor') {
+        if (computerSelection == 'rock'){
+            return 'Scissors losses to rock!'
+        }
+        else if (computerSelection == 'paper'){
+            return 'Scissors beats paper!'
+        }
+    }
+    else
+        return (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)) + ' ties with ' (computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1))
 }
 
 
