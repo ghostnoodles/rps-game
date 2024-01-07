@@ -48,7 +48,7 @@ let playRound = (playerSelection, computerSelection) => {
             return 'Scissors beats paper!'
     }
     else {
-        return  [firstLetterUpperCase(player) + ' ties with ' + computerSelection + '!', 0, 0, 1]
+        return  [firstLetterUpperCase(playerChoice) + ' ties with ' + computerSelection + '!', 0, 0, 1]
     }
 };
 
