@@ -25,15 +25,14 @@ let playerSelection = (playerChoice) => {
 };
 
 let playRound = (playerSelection, computerSelection) => {
-    console.log(playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
-    if (playerSelection == 'rock'){
-        if (computerSelection == 'paper'){
-            return 'Rock losses to paper!'
-        }
-        else if (computerSelection == 'scissors' || computerSelection == 'scissor'){
+    console.log(playerSelection, computerSelection)
+    if (playerSelection == 'rock' && computerSelection == 'paper'){
+        return 'Rock losses to paper!'
+    }
+    else if (playerSelection == 'rock' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
             return 'Rock beats scissors!'
         }
-    }
+
     else if (playerSelection == 'paper') {
         if (computerSelection == 'rock'){
             return 'Paper beats rock!'
@@ -51,7 +50,11 @@ let playRound = (playerSelection, computerSelection) => {
         }
     }
     else {
-        return (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)) + ' ties with ' + (computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1))
+        let player = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+        let cpu = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+        console.log(player, cpu )
+        console.log(typeof player,typeof cpu )
+        return  player + ' ties with ' + cpu 
     }
 };
 
