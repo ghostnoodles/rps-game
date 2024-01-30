@@ -78,7 +78,23 @@ let game = (playerWins, computerWins, totalRounds) =>{
     }
 };
 
-game(playerWins, computerWins, totalRounds);
+const rock = document.querySelector('#rock');
+const scissor = document.querySelector('#scissor');
+const paper = document.querySelector('#paper');
+
+rock.addEventListener('click', () => {
+
+  });
+
+scissor.addEventListener('click', () => {
+
+  });
+
+paper.addEventListener('click', () => {
+
+  });
+
+// game(playerWins, computerWins, totalRounds);
 
 
 // console.log(playRound(playerSelection(playerChoice), computerSelection(getComputerChoice())))
