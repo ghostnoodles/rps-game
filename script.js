@@ -27,55 +27,65 @@ let computerSelection = (num) => {
 //     }
 // };
 
-let playRound = (playerSelection, computerSelection) => {
-    if (playerSelection == 'rock' && computerSelection == 'paper'){
-        return ['Rock losses to paper!', 0, 1, 1]
-    }
-    else if (playerSelection == 'rock' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
-            return ['Rock beats scissors!', 1, 0, 1]
-    }
-    else if (playerSelection == 'paper' && computerSelection == 'rock') {
-            return ['Paper beats rock!', 1, 0, 1]
-    }
-    else if (playerSelection == 'paper' && (computerSelection == 'scissors' || computerSelection == 'scissor')){
-            return ['Paper losses to scissors!', 0, 1, 1]
-    }
-    else if ((playerChoice == 'scissors' || playerChoice == 'scissor') && (computerSelection == 'rock')){
-            return ['Scissors losses to rock!', 0, 1, 1]
-    }
-    else if ((playerChoice == 'scissors' || playerChoice == 'scissor') && (computerSelection == 'paper')){
-            return ['Scissors beats paper!', 1, 0, 1]
-    }
-    else {
-        return  [playerSelection + ' ties with ' + computerSelection + '!', 0, 0, 1]
-    }
-};
-
 let playerWins = 0
 let computerWins = 0
 let totalRounds = 0
 let result = ''
 
-let game = (playerWins, computerWins, totalRounds, playerChoice) =>{
-    while ((playerWins < 3) && (computerWins < 3)){
-        result = playRound(playerChoice, computerSelection(getComputerChoice()))
-        playerWins += result[1]
-        computerWins += result[2]
-        totalRounds += result[3]
-        resultDiv.textContent = 'The current score for Player: ' + playerWins
-        resultDiv.textContent = 'The current score is Computer: ' + computerWins
-        resultDiv.textContent = 'Total rounds: ' + totalRounds
-        resultDiv.textContent = result[0]        
-        // console.log(++playerWins)
-        // console.log(++computerWins)
+let playRound = (playerSelection, computerSelection) => {
+    if (playerSelection == 'rock' && computerSelection == 'paper'){
+        ++computerWins
+        ++totalRounds
+        return ['Rock losses to paper!', 0, 1, 1]
     }
-    if (playerWins == 3) {
-        console.log('The player wins!')
+    else if (playerSelection == 'rock' && computerSelection == 'scissors' ){
+        ++playerWins
+        ++totalRounds
+        return ['Rock beats scissors!', 1, 0, 1]
+    }
+    else if (playerSelection == 'paper' && computerSelection == 'rock') {
+        ++playerWins
+        ++totalRounds
+        return ['Paper beats rock!', 1, 0, 1]
+    }
+    else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+        ++computerWins
+        ++totalRounds
+        return ['Paper losses to scissors!', 0, 1, 1]
+    }
+    else if (playerChoice == 'scissors'  && computerSelection == 'rock'){
+        ++computerWins
+        ++totalRounds
+        return ['Scissors losses to rock!', 0, 1, 1]
+    }
+    else if (playerChoice == 'scissors' && computerSelection == 'paper'){
+        ++playerWins
+        ++totalRounds
+        return ['Scissors beats paper!', 1, 0, 1]
     }
     else {
-        console.log('The computer wins!')
+        ++totalRounds
+        return  [playerSelection + ' ties with ' + computerSelection + '!', 0, 0, 1]
     }
 };
+
+
+let game = (playerWins, computerWins, totalRounds, playerChoice) =>{
+        result = playRound(playerChoice, computerSelection(getComputerChoice()))
+        resultDiv.textContent = 'The current score for Player: ' + playerWins + '\r\n'
+        resultDiv.textContent += 'The current score is Computer: ' + computerWins + '\r\n'
+        resultDiv.textContent += 'Total rounds: ' + totalRounds + '\r\n'
+        resultDiv.textContent += result[0] + '\r\n'       
+        // console.log(++playerWins)
+        // console.log(++computerWins)
+    if (playerWins == 3) {
+        resultDiv.textContent += 'The player wins!'
+    }
+    else if(computerWins ==3 ) {
+        resultDiv.textContent += 'The computer wins!'
+    }
+};
+
 
 const resultDiv = document.querySelector('#result')
 const rock = document.querySelector('#rock');
