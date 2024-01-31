@@ -5,7 +5,7 @@
 // }
 
 let getComputerChoice = () => Math.floor(Math.random() * 3 + 1);
-let firstLetterUpperCase = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+// let firstLetterUpperCase = (word) => word.charAt(0).toUpperCase() + word.slice(1);
 let computerSelection = (num) => {
     switch(num) {
         case 1:
@@ -17,15 +17,15 @@ let computerSelection = (num) => {
     }
 };
 
-let playerChoice = ''
+// let playerChoice = ''
 
-let playerSelection = () => {
-    playerChoice = prompt("Please enter either Rock, Paper, or Scissors ", '').toLowerCase()
-    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
-    {
-        return playerChoice
-    }
-};
+// let playerSelection = () => {
+//     playerChoice = prompt("Please enter either Rock, Paper, or Scissors ", '').toLowerCase()
+//     if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors' || playerChoice == 'scissor')
+//     {
+//         return playerChoice
+//     }
+// };
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock' && computerSelection == 'paper'){
@@ -47,7 +47,7 @@ let playRound = (playerSelection, computerSelection) => {
             return ['Scissors beats paper!', 1, 0, 1]
     }
     else {
-        return  [firstLetterUpperCase(playerChoice) + ' ties with ' + computerSelection + '!', 0, 0, 1]
+        return  [playerSelection + ' ties with ' + computerSelection + '!', 0, 0, 1]
     }
 };
 
@@ -56,17 +56,16 @@ let computerWins = 0
 let totalRounds = 0
 let result = ''
 
-let game = (playerWins, computerWins, totalRounds) =>{
+let game = (playerWins, computerWins, totalRounds, playerChoice) =>{
     while ((playerWins < 3) && (computerWins < 3)){
-        result = playRound(playerSelection(), computerSelection(getComputerChoice()))
+        result = playRound(playerChoice, computerSelection(getComputerChoice()))
         playerWins += result[1]
         computerWins += result[2]
         totalRounds += result[3]
-        console.log('The current score for Player: ' + playerWins)
-        console.log('The current score is Computer: ' + computerWins)
-        console.log('Total rounds: ' + totalRounds)
-        console.log(result[0])
-        console.log('')           
+        resultDiv.textContent = 'The current score for Player: ' + playerWins
+        resultDiv.textContent = 'The current score is Computer: ' + computerWins
+        resultDiv.textContent = 'Total rounds: ' + totalRounds
+        resultDiv.textContent = result[0]        
         // console.log(++playerWins)
         // console.log(++computerWins)
     }
@@ -78,15 +77,17 @@ let game = (playerWins, computerWins, totalRounds) =>{
     }
 };
 
+const resultDiv = document.querySelector('#result')
 const rock = document.querySelector('#rock');
-const scissor = document.querySelector('#scissor');
+const scissors = document.querySelector('#scissors');
 const paper = document.querySelector('#paper');
 
 rock.addEventListener('click', () => {
-
+    game(playerWins, computerWins, totalRounds, 'rock')
+    // resultDiv.textContent = 
   });
 
-scissor.addEventListener('click', () => {
+scissors.addEventListener('click', () => {
 
   });
 
@@ -94,6 +95,10 @@ paper.addEventListener('click', () => {
 
   });
 
+
+
+// const div = document.createElement('div');
+// resultDiv.appendChild(childNode)
 // game(playerWins, computerWins, totalRounds);
 
 
