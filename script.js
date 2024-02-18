@@ -33,39 +33,39 @@ let totalRounds = 0
 let result = ''
 
 let playRound = (playerSelection, computerSelection) => {
-    if (playerSelection == 'rock' && computerSelection == 'paper'){
+    if (playerSelection == 'Rock' && computerSelection == 'paper'){
         ++computerWins
         ++totalRounds
-        return ['Rock losses to paper!', 0, 1, 1]
+        return 'Rock losses to paper!'
     }
-    else if (playerSelection == 'rock' && computerSelection == 'scissors' ){
+    else if (playerSelection == 'Rock' && computerSelection == 'scissors' ){
         ++playerWins
         ++totalRounds
-        return ['Rock beats scissors!', 1, 0, 1]
+        return 'Rock beats scissors!'
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
         ++playerWins
         ++totalRounds
-        return ['Paper beats rock!', 1, 0, 1]
+        return 'Paper beats rock!'
     }
     else if (playerSelection == 'paper' && computerSelection == 'scissors'){
         ++computerWins
         ++totalRounds
-        return ['Paper losses to scissors!', 0, 1, 1]
+        return 'Paper losses to scissors!'
     }
     else if (playerChoice == 'scissors'  && computerSelection == 'rock'){
         ++computerWins
         ++totalRounds
-        return ['Scissors losses to rock!', 0, 1, 1]
+        return 'Scissors losses to rock!'
     }
     else if (playerChoice == 'scissors' && computerSelection == 'paper'){
         ++playerWins
         ++totalRounds
-        return ['Scissors beats paper!', 1, 0, 1]
+        return 'Scissors beats paper!'
     }
     else {
         ++totalRounds
-        return  [playerSelection + ' ties with ' + computerSelection + '!', 0, 0, 1]
+        return playerSelection + ' ties with ' + computerSelection + '!'
     }
 };
 
@@ -75,16 +75,27 @@ let game = (playerWins, computerWins, totalRounds, playerChoice) =>{
         resultDiv.textContent = 'The current score for Player: ' + playerWins + '\r\n'
         resultDiv.textContent += 'The current score is Computer: ' + computerWins + '\r\n'
         resultDiv.textContent += 'Total rounds: ' + totalRounds + '\r\n'
-        resultDiv.textContent += result[0] + '\r\n'       
+        resultDiv.textContent += result + '\r\n'       
         // console.log(++playerWins)
         // console.log(++computerWins)
-    if (playerWins == 3) {
-        resultDiv.textContent += 'The player wins!'
+        gameEnd(playerWins, computerWins)
+};
+
+function gameEnd (pWins, cWins) {
+    if (pWins == 3) {
+        playerWins = 0
+        computerWins = 0
+        totalRounds = 0
+        alert('The player wins!')
     }
-    else if(computerWins ==3 ) {
-        resultDiv.textContent += 'The computer wins!'
+    else if(cWins == 3 ) {
+        playerWins = 0
+        computerWins = 0
+        totalRounds = 0
+        alert('The computer wins!')
     }
 };
+
 
 
 const resultDiv = document.querySelector('#result')
@@ -93,7 +104,7 @@ const scissors = document.querySelector('#scissors');
 const paper = document.querySelector('#paper');
 
 rock.addEventListener('click', () => {
-    game(playerWins, computerWins, totalRounds, 'rock')
+    game(playerWins, computerWins, totalRounds, 'Rock')
     // resultDiv.textContent = 
   });
 
